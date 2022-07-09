@@ -5,7 +5,6 @@ const addNoteHandler = (request, h) => {
 	const id = nanoid(16);
 	const createdAt = new Date().toISOString();
 	const updatedAt = createdAt;
-	console.log(createdAt);
 	const newNote = {
 		title,
 		tags,
@@ -16,9 +15,7 @@ const addNoteHandler = (request, h) => {
 	};
 
 	notes.push(newNote);
-	console.log(...notes);
 	const isSuccess = notes.filter((note) => note.id === id).length > 0;
-	//	console.log(isSuccess);
 	if (isSuccess) {
 		const response = h.response({
 			status: "Success",
